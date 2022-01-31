@@ -1,19 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import {Text, View, StyleSheet, Image, Pressable, TextInput} from 'react-native';
 
 
 
 function Calculador(){
+    const precio = 69900;
+    const [gasto, onChangeGasto] = React.useState();
+    const [descontado, setIDescontado] = useState(0);
+
     return(
         <View style={styles.container}>
             <Text style={styles.title}>Calcular tu ahorro con la membresía</Text>
             <Text style={styles.subTitle}>¿Cuánto gastas al mes en tu peludo?</Text>
-            <TextInput style={styles.input}/>
-            <Pressable style={styles.btnContainer}>
+            <TextInput keyboardType="numeric" style={styles.input} onChangeText={onChangeGasto} value={gasto}/>
+            <Pressable style={styles.btnContainer} onPress={()=>{setIDescontado(gasto *  12 - precio)}}>
                     <Text style={styles.btnText}>Calcular</Text>
             </Pressable>
             <Text style={styles.textLight}>Te ahorras</Text>
-            <Text style={styles.textLightYellow}>$0</Text>
+            <Text style={styles.textLightYellow}>${descontado}</Text>
             <Text style={styles.textLight}>al año</Text>
         </View>
     )
