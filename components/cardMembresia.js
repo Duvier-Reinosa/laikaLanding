@@ -157,7 +157,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffc200',
     },
     btnText:{
-        fontWeight: '600'
+        fontWeight: '600',
+        color: '#1e123a'
     },
     terminosText:{
         fontSize: 12,
